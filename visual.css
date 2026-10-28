@@ -1,0 +1,97 @@
+.sakura-branch {
+    position: fixed;
+    z-index: 1;
+    width: clamp(560px, 60vw, 780px);
+    height: auto;
+    pointer-events: none;
+    opacity: 0.16;
+    filter: saturate(0.78);
+    transform-origin: 8% 92%;
+    animation: sakura-branch-sway 9s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+.sakura-branch--left {
+    top: -4vh;
+    left: -72px;
+}
+
+.sakura-branch--right {
+    top: 18vh;
+    right: -72px;
+    transform-origin: 92% 92%;
+    animation-name: sakura-branch-sway-reversed;
+    animation-duration: 10s;
+}
+
+.sakura-branch--middle-left {
+    top: 43vh;
+    left: 10vw;
+    opacity: 0.13;
+    animation-delay: -3s;
+    animation-duration: 11s;
+}
+
+.sakura-branch--lower-right {
+    top: 68vh;
+    right: 2vw;
+    opacity: 0.14;
+    animation-delay: -5s;
+    animation-duration: 9.5s;
+}
+
+@keyframes sakura-branch-sway {
+    from {
+        transform: rotate(-1.6deg);
+    }
+
+    to {
+        transform: rotate(1.6deg);
+    }
+}
+
+@keyframes sakura-branch-sway-reversed {
+    from {
+        transform: scaleX(-1) rotate(-1.5deg);
+    }
+
+    to {
+        transform: scaleX(-1) rotate(1.5deg);
+    }
+}
+
+@media (max-width: 760px) {
+    .sakura-branch {
+        width: clamp(340px, 88vw, 500px);
+        opacity: 0.12;
+    }
+
+    .sakura-branch--left {
+        top: 5vh;
+        left: -110px;
+    }
+
+    .sakura-branch--right {
+        top: 30vh;
+        right: -96px;
+    }
+
+    .sakura-branch--middle-left {
+        top: 56vh;
+        left: -80px;
+        opacity: 0.1;
+    }
+
+    .sakura-branch--lower-right {
+        top: 82vh;
+        right: -86px;
+        opacity: 0.11;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sakura-branch {
+        display: none;
+        animation: none;
+    }
+}
